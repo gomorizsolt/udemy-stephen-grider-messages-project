@@ -4,22 +4,22 @@ import { CreateMessageDto } from './messages.dto';
 @Controller('messages')
 export class MessagesController {
   @Get()
-  findAll() {
+  listMessages() {
     // TODO ...
   }
 
   @Get('/:id')
-  findOne(@Param('id') id: string) {
+  getMessage(@Param('id') id: string) {
     // TODO ...
   }
 
   @Post()
-  create(@Body() createMessageDto: CreateMessageDto) {
+  createMessage(@Body() createMessageDto: CreateMessageDto) {
     // TODO ...
   }
 
   @Delete('/:id')
-  delete(@Param('id') id: string) {
+  deleteMessage(@Param('id') id: string) {
     // TODO ...
   }
 }
