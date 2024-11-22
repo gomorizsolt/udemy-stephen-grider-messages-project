@@ -33,10 +33,13 @@ export class MessagesRepository {
   async delete(id: string) {
     const messages = await this.#loadMessages();
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { [id]: _, ...restMessages } = messages;
+    const { [id]: deletedMessage, ...restMessages } = messages;
 
-    return writeFile('messages.json', JSON.stringify(restMessages));
+    if (!deletedMessage) return;
+
+    await writeFile('messages.json', JSON.stringify(restMessages));
+
+    return deletedMessage;
   }
 
   async #loadMessages() {
